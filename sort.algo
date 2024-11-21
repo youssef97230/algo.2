@@ -1,0 +1,66 @@
+ALGORITHM insertion_sort
+
+// the right place of a cart in a sorted hand //
+PROCEDURE sort1(tab : ARRAY_OF INTEGER)
+VAR
+    n: tab.lenght
+    sw, sw2, i, a, b, j: INTEGER
+    sw, sw2:=0
+    i, b:=0
+BEGIN
+    Read(a)
+    b=a
+    WHILE (b=a) DO
+        IF (tab[i]<=a) THEN
+            i=i+1
+        ELSE 
+            sw=tab[i]
+            tab[i]=a
+            a=sw
+            FOR j FROM i+1 TO n DO
+                sw2=tab[j]
+                tab[j]=a
+                a=sw2
+            END_FOR
+        END_IF
+    END_WHILE
+END
+
+// sorting from the bottom to the top number //
+PROCEDURE sort2(tab2: ARRAY_OF INTEGER)
+VAR
+    i, j, rep, min: INTEGER
+BEGIN
+    FOR i FROM 0 TO n-1 DO
+        min=tab2[i]
+        FOR j FROM i TO n-1 DO 
+            IF (min>tab2[j]) THEN
+                rep=tab2[i]
+                tab2[i]=tab2[j]
+                tab2[j]=rep
+            END_IF
+        tab2[i]=min
+        END_FOR
+    END_FOR
+END
+
+
+// sorting by piking one number of the arr and place in the right position each time //
+PROCEDURE sort3(tab3 :ARRAY_OF INTEGER)
+VAR 
+    x, swi, i, j: INTEGER
+    x, swi:=0
+    
+BEGIN
+    min=tab3[0]
+    FOR j FROM 0 TO n-1 DO
+        FOR i FROM 0 TO n-1 DO
+            IF (min>tab3[j]) THEN
+                x=x+1
+            END_IF
+        END_FOR
+        swi=tab3[x]
+        tab3[x]=min
+        min=swi
+    END_FOR
+END
